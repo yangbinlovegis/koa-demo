@@ -1,0 +1,50 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "test demp",
+  "scripts": {
+    "start": "node server/server.js",
+    "webpack": "webpack",
+    "build": "rm -rf ./dist/buldle.js && webpack --progress --color --config ./webpack.config.babel.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yangbinlovegis/webpackDemo/issues"
+  },
+  "homepage": "https://github.com/yangbinlovegis/webpackDemo#readme",
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-react-jsx": "^6.23.0",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-preset-stage-2": "^6.22.0",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "fs.promised": "^3.0.0",
+    "jquery": "^3.2.1",
+    "koa": "^2.3.0",
+    "koa-body": "^2.3.0",
+    "koa-compose": "^4.0.0",
+    "koa-route": "^3.2.0",
+    "koa-static": "^4.0.1",
+    "koa-webpack-dev-middleware": "^2.0.2",
+    "koa-webpack-hot-middleware": "^1.0.3",
+    "less": "^3.0.1",
+    "less-loader": "^4.1.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0",
+    "style-loader": "^0.20.3",
+    "webpack": "~2.4.1",
+    "webpack-cli": "^2.0.14"
+  },
+  "dependencies": {
+    "jsx-loader": "^0.13.2",
+    "react-hot-loader": "^1.3.1"
+  }
+}
