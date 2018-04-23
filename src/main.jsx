@@ -5,10 +5,11 @@ import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import todoApp from './reducer/index';
+
 import App from './container/App'; 
 import './style/index';
 
-const store = createStore(todoApp, applyMiddleware(thunk));
+const store = createStore(todoApp, compose(applyMiddleware(thunk)));
 render(
     <Provider store={store}>
         <App />

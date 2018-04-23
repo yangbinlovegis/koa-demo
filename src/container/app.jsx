@@ -1,4 +1,6 @@
 import React, {Component, PropTypes} from 'react'
+import {connect} from 'react-redux';
+import {addTodos} from '../action/index';
 
 class App extends Component {
     constructor(props) {
@@ -14,6 +16,8 @@ class App extends Component {
     }
     componentDidMount() {
         console.log('component did mount');
+        const {dispatch} = this.props;
+        dispatch(addTodos());
         document.body.addEventListener('click', () => {
             console.log('clickOthers');
             this.setState({
@@ -21,6 +25,7 @@ class App extends Component {
             });
         })
     }
+
     componentWillReceiveProps(nextProps) {
         console.log('component will receive props');
     }
@@ -28,6 +33,7 @@ class App extends Component {
     handlerClickInput = () => {
         console.log('clickInput arguments=', arguments);
         const {display} = this.state;
+        const {dispatch} = this.props;
         this.setState({
             display: !display
         })
@@ -39,6 +45,7 @@ class App extends Component {
     render() {
         console.log('app render');
         const {inputArray, display} = this.state;
+        const {value} = this.props;
         return (
             <div className='app'>
             {
@@ -47,15 +54,18 @@ class App extends Component {
                         <div
                             className='image-control'
                             key={index}
-                            onClick={this.handlerClickInput}
+                            onClick={this.handlerClickInput.bind(this)}
                         />
                     )
                 })
             }
+                <input
+                    value={value}
+                />
                 <div
                     className='wrapper'
                     style={{'visibility' : display ? 'visible': 'hidden'}}
-                    onClick={this.handlerClickWrapper}
+                    onClick={this.handlerClickWrapper.bind(this)}
                 >
                     <img src='resource/image.png'/>
                 </div>
@@ -63,4 +73,14 @@ class App extends Component {
         )
     }
 }
-export default App;
+// export default App;
+
+function mapStateToProps(initState) {
+    const {todos} = initState;
+    return {
+        name: todos.name,
+        value: todos.value
+    };
+};
+export default connect(mapStateToProps)(App);
+

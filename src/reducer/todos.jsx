@@ -1,14 +1,14 @@
 
-const initState = {
+export const initState = {
     name: 'test',
-    value: '1'
+    value: ''
 }
 export default function todos(state = initState, action) {
     switch(action.type) {
         case 'ADD_TODOS':
             return {
                 ...state,
-                value: '2'
+                value: action.value
             }
     }
     return initState;
