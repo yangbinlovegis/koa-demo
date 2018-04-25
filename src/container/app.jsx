@@ -12,10 +12,10 @@ class App extends Component {
         }
     }
     componentWillMount() {
-        console.log('component will mount');
+        console.log('component will mount args= ', arguments);
     }
     componentDidMount() {
-        console.log('component did mount');
+        console.log('component did mount args=', arguments);
         const {dispatch} = this.props;
         dispatch(addTodos());
         document.body.addEventListener('click', () => {
@@ -27,9 +27,11 @@ class App extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('component will receive props');
+        console.log('component will receive props args=', arguments);
     }
-
+    componentDidUpdate() {
+        console.log('component did update args=', arguments);
+    }
     handlerClickInput = () => {
         console.log('clickInput arguments=', arguments);
         const {display} = this.state;
